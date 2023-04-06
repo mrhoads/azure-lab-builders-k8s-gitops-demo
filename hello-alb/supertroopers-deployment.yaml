@@ -1,14 +1,21 @@
-apiVersion: v1
-kind: Service
+apiVersion: apps/v1
+kind: Deployment
 metadata:
   name: hello-alb
   labels:
     app: hello-alb
 spec:
-  type: LoadBalancer
+  replicas: 1
   selector:
-    app: hello-alb
-  ports:
-    - port: 80
-      targetPort: 8080
-      protocol: TCP
+    matchLabels:
+      app: hello-alb
+  template:
+    metadata:
+      labels:
+        app: hello-alb
+    spec:
+      containers:
+      - name: hello-alb
+        image: mikealbdemo.azurecr.io/alb/hello-alb:1.10.1
+        ports:
+        - containerPort: 8080
