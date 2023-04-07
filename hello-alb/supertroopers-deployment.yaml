@@ -20,3 +20,5 @@ spec:
         image: mikealbdemo.azurecr.io/alb/hello-alb:ramrod
         ports:
         - containerPort: 8080
+      imagePullSecrets:
+        - name: acr-secret
