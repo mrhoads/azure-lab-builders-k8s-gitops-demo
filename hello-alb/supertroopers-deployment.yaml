@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: hello-alb
-        image: mikealbdemo.azurecr.io/alb/hello-alb:farva
+        image: mikealbdemo.azurecr.io/alb/hello-alb:ramrod
         ports:
         - containerPort: 8080
       imagePullSecrets:
